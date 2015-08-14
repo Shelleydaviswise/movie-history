@@ -2,3 +2,6 @@ bower_components
 node_modules
 .sass-cache
 package.json
+old-index.html
+templates/movie.hbs
+javascripts/oldmain.js

@@ -19,6 +19,7 @@ requirejs.config({
 
 
 // The main function requiring all our anciliary scripts
+
 requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "templates", "bootstrap-rating"], 
   function($, _, _firebase, Handlebars, bootstrap, movies, template, bsrating){
   var myFirebaseRef = new Firebase("https://movie-history531.firebaseio.com/");
@@ -56,39 +57,52 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
         $thisMovieWatchButton.addClass("btn-danger");
       }
     }
+    require(
+    ['hbs!../templates/modal'],
+    function(modalTemplate){
+      var populatedModal = modalTemplate({movie:poster});
+      $("#modal-body").html(populatedTemplate);
+      });     
+    });
+
   });
   var show = function(showMovie) {
     movie = showMovie;
     console.log("movies", showMovie);
           
-    newMovie.title = movie.Title;
-    newMovie.year = movie.Year;
-    newMovie.actors = movie.Actors;
-    newMovie.plot = movie.Plot;
-    newMovie.poster = movie.Poster;
-    newMovie.rating = 5;
-    newMovie.watched = false;
-    console.log("newMovie", newMovie);
+  //   newMovie.title = movie.Title;
+  //   newMovie.poster = movie.Poster;
+  //   console.log("newMovie", newMovie);
 
-    $.ajax ({
-      url: "https://movie-history531.firebaseio.com/Movie.json",
-       method: "POST", 
-       data: JSON.stringify(newMovie)
-     }).done(function(NewType) {
-       console.log("New Movie");
-     });
-  
-  };
+// $('#findMovieBtn').click(function() {
+//     console.log("click");
+//     var findMovie = $("#searchText").val();
+//     console.log("searchText", findMovie);
+//     $("#searchText").val("");
+//     movies.getMovie(findMovie, show);
+
+//   });
+
 
 //Add Movie Button    
 
-  $('#addMoviebtn').click(function() {
-    console.log("click");
-    var addMovie = $("#addMovie").val();
-    console.log("addMovie", addMovie);
-    $("#addMovie").val("");
-    movies.getMovie(addMovie, show);
-  });
+  // $('#addMoviebtn').click(function() {
+  //   console.log("click");
+  //   var addMovie = $("#addMovie").val();
+  //   console.log("addMovie", addMovie);
+  //   $("#addMovie").val("");
+  //   movies.getMovie(addMovie, show);
+
+  //    // $.ajax ({
+  //   //   url: "https://movie-history531.firebaseio.com/Movie.json",
+  //   //    method: "POST", 
+  //   //    data: JSON.stringify(newMovie)
+  //   //  }).done(function(NewType) {
+  //   //    console.log("New Movie");
+  //   //  });
+  
+
+  // });
 
   // Delete Movie Button (From Firebase)
 
@@ -97,7 +111,7 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
   //   myFirebaseRef.child("Movie").child(movieKey).set(null);
   // });
 
-  // Remove Movie Button (Not Firebase)
+  // // Remove Movie Button (Not Firebase)
 
   // $(document).on("click", ".rmv", function() {
   //   $(this).parent().remove();
@@ -113,6 +127,7 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
   //   myFirebaseRef.child("Movie").child(movieKey).set(movieWithNewRating);
   // });
     
+
   // $('#search').click(function() {
     
     
