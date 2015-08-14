@@ -1,4 +1,4 @@
-define(["jquery"], function($) {
+tdefine(["jquery"], function($) {
 
   return {
     getMovie: function(title, callback) {
