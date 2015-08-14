@@ -1,32 +1,50 @@
-{{#each Movie}}
-<section class="movie-sec" key="{{@key}}">
+
+<section class="movie-sec inline" key="{{@key}}">
   <div class="row">
-    <div class="col-xs-12">
-      <h2>{{title}} ({{year}})</h2>
-    </div>
-  </div>
-  <div class="row">
+  {{#each Movie}}
     <div class="col-sm-3">
       {{#if poster}}
       <img src="{{poster}}" alt="{{title}} Poster">
       {{else}}
       <img src="../images/no-image-found.jpg" alt="{{title}} Poster">
       {{/if}}
-      <input class="form-control rating" type="range" min="1" max="10" step="1" value="{{rating}}">
-      <p>Rating: {{rating}}</p>
+        <fieldset class="form-control rating" id="starrating">
+          <input type="radio" id="star5" name="rating" value="{{rating}}"/>
+          <label class = "full" for="star5" title="10"></label>
+
+          <input type="radio" id="star4half" name="rating" value="{{rating}}"/>
+          <label class="half" for="star4half" title="9"></label>
+
+          <input type="radio" id="star4" name="rating" value="{{rating}}"/>
+          <label class = "full" for="star4" title="8"></label>
+
+          <input type="radio" id="star3half" name="rating" value="{{rating}}"/>
+          <label class="half" for="star3half" title="7"></label>
+
+          <input type="radio" id="star3" name="rating" value="{{rating}}"/>
+          <label class = "full" for="star3" title="6"></label>
+
+          <input type="radio" id="star2half" name="rating" value="{{rating}}"/>
+          <label class="half" for="star2half" title="5"></label>
+
+          <input type="radio" id="star2" name="rating" value="{{rating}}"/>
+          <label class = "full" for="star2" title="4"></label>
+
+          <input type="radio" id="star1half" name="rating" value="{{rating}}"/>
+          <label class="half" for="star1half" title="3"></label>
+
+          <input type="radio" id="star1" name="rating" value="{{rating}}"/>
+          <label class = "full" for="star1" title="2"></label>
+          
+          <input type="radio" id="starhalf" name="rating" value="{{rating}}"/>
+          <label class="half" for="starhalf" title="1"></label>
+        </fieldset>
     </div>
-    <div class="col-sm-9">
-      <p>{{plot}}</p>
-      <h4>Leading Actors</h4>
-      <ul>
-        {{#each actors}}
-        <li>{{this}}</li>
-        {{/each}}
-      </ul>
-    </div>
+  {{/each}}
   </div>
-  <button class="btn btn-danger watchToggle">Unwatched</button>
-  <button class="rmv btn btn-default">Hide</button>
-  <button class="del btn btn-danger">Delete</button>
+      <button class="btn btn-danger watchToggle">Unwatched</button>
+      <button class="del btn btn-danger">Delete</button>
+  <br><br><br>
 </section>  
-{{/each}}
+
+{{!-- <input class=" rating" type="range" min="1" max="10" step="1" value="{{rating}}"> --}}

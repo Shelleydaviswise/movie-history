@@ -1,19 +1,44 @@
-nav {
-  border: 2px dotted goldenrod;
-  color: white; }
+.navbar-default {
+  margin-top: 20px;
+  background-color: slateGray; }
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  /*Change text color here*/
+  font-size: 20px; }
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav {
+  color: #FEFAC0;
+  /*Text hover color on navbar*/ }
+
+.navbar-default .navbar-brand {
+  color: #fff;
+  /*Home text color*/
+  font-size: 40px; }
+
+.navbar-default .navbar-brand:hover {
+  color: #FEFAC0;
+  /*Home hover color*/ }
+
+.dropdown-menu > li > a:hover {
+  color: #262626;
+  background-color: darkGray;
+  /*change color of links in drop down*/ }
+
+.center {
+  text-align: center; }
 
 a {
   font-size: 2em;
-  background-color: black;
-  color: white; }
+  color: black; }
 
-.main {
-  border: 2px dotted goldenrod;
-  background-color: rbga(0, 0, 0, 0); }
+.mainstyle {
+  background-color: MediumAquaMarine;
+  padding: 30px 30px 30px 30px;
+  margin: 20px 20px 20px 20px; }
 
-.side {
-  border: 2px dotted goldenrod;
-  background-color: rbga(0, 0, 0, 0); }
+.bkgdstyle {
+  background-color: lightGray; }
 
 .row-eq-height {
   display: -webkit-box;
@@ -21,24 +46,50 @@ a {
   display: -ms-flexbox;
   display: flex; }
 
-img {
-  width: 100%;
-  height: 100%;
-  max-width: 400px; }
-
 body {
-  font: 100% Helvetica, sans-serif;
-  background: #5d0806 url("../images/background.jpg") no-repeat center center fixed;
-  background-size: cover; }
+  font: 100% Helvetica, sans-serif; }
 
 div {
-  color: white;
+  color: black;
   font-size: 1.15em !important; }
 
 .form-control {
   margin: 10px 0 !important; }
 
-.input-group {
-  margin-top: 40px !important; }
+.rating {
+  border: none;
+  float: left; }
+
+.rating > input {
+  display: none; }
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+  /*whole star*/ }
+
+.rating > .half:before {
+  content: "\f089";
+  /*half star*/
+  position: absolute; }
+
+.rating > label {
+  color: #ddd;
+  float: right; }
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #FFD700; }
+
+/* hover previous stars in list */
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: #FFED85; }
 
 /*# sourceMappingURL=main.css.map */

@@ -9,34 +9,38 @@
     
     <title>Nashville Software School</title>
   </head>
-  <body>
-   <!--  <nav>
-      <ul class="nav nav-pills">
-        <li role="presentation"><a href="index.html">View Movie</a></li>
-        <li role="presentation"><a href="add.html">Add Movie</a></li>
-        <li role="presentation"><a href="#">Fight Me irl</a></li>
-      </ul>
-    </nav> -->
+  <body class="bkgdstyle">
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand">Find My Movie</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="#">Wish List</a></li>
+              <li><a href="#">Watched</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" id="searchText" class="btn btn-default">Search</button>
+              <button type="button" id="addMoviebtn" class="btn btn-default">Find</button>
+            </form>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </header>
     
+
+
     <div id="cont" class="container-fluid">
       <div id="rowEq" class="row row-eq-height">
-        <div id="sideId" class="col-xs-3 side">
-          <div class="input-group">
-            <span class="input-group-btn">
-              <button id="search" class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-              </button>
-            </span>
-            <input id="searchText" type="text" class="form-control" placeholder="Search Movies...">
-          </div><!-- /input-group -->
-          <div class="input-group">
-            <span class="input-group-btn">
-              <button class="btn btn-default" id="addMoviebtn" type="button">Add!</button>
-            </span>
-            <input id="addMovie" type="text" class="form-control" placeholder="Add Movies...">
-          </div><!-- /input-group -->
-        </div>
-        <div id="range" class="col-xs-9 main">
+        <div id="range" class="col-xs-12 main mainstyle">
           <div class="btn-group" role="group" aria-label="...">
             <div class="btn-group" role="group">
               <!-- <button type="button" class="btn btn-danger">Watched</button> -->
@@ -45,8 +49,8 @@
         </div>
       </div>
     </div>
+
     <script data-main="./javascripts/main" src="bower_components/requirejs/require.js"></script>
-    
   </body>
   
   <footer>
