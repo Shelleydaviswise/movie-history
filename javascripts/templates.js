@@ -1,6 +1,6 @@
-define(["hbs!../templates/movie"],
-function(movieTemplate) {
+define(["hbs!../templates/modal"],
+function(modalTemplate) {
   var templateObj = {};
-  templateObj.movie = movieTemplate;
+  templateObj.movie = modalTemplate;
   return templateObj;
 });
