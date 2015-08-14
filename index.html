@@ -1,54 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   
-  <head>
-    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    
-    <title>Nashville Software School</title>
-  </head>
-  <body>
-   <!--  <nav>
-      <ul class="nav nav-pills">
-        <li role="presentation"><a href="index.html">View Movie</a></li>
-        <li role="presentation"><a href="add.html">Add Movie</a></li>
-        <li role="presentation"><a href="#">Fight Me irl</a></li>
-      </ul>
-    </nav> -->
-    
-    <div id="cont" class="container-fluid">
-      <div id="rowEq" class="row row-eq-height">
-        <div id="sideId" class="col-xs-3 side">
-          <div class="input-group">
-            <span class="input-group-btn">
-              <button id="search" class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-              </button>
-            </span>
-            <input id="searchText" type="text" class="form-control" placeholder="Search Movies...">
-          </div><!-- /input-group -->
-          <div class="input-group">
-            <span class="input-group-btn">
-              <button class="btn btn-default" id="addMoviebtn" type="button">Add!</button>
-            </span>
-            <input id="addMovie" type="text" class="form-control" placeholder="Add Movies...">
-          </div><!-- /input-group -->
-        </div>
-        <div id="range" class="col-xs-9 main">
-          <div class="btn-group" role="group" aria-label="...">
-            <div class="btn-group" role="group">
-              <!-- <button type="button" class="btn btn-danger">Watched</button> -->
-            </div>
-          </div>
-        </div>
+</head>
+<body>
+<!-- Button trigger modal -->
+<button type="button" id = 'findMovieBtn' class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Search OMDB
+</button>
+<input type='text' id='searchText' class='input-field' placeholder='Movie Title'>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Your movies...</h4>
+      </div>
+      <div id ="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add to Wishlist</button>
       </div>
     </div>
-    <script data-main="./javascripts/main" src="bower_components/requirejs/require.js"></script>
-    
-  </body>
-  
-  <footer>
-  </footer>
+  </div>
+</div>
+
+
+
+
+<script data-main="./javascripts/main" src="bower_components/requirejs/require.js"></script>
+
+</body>
 </html>
