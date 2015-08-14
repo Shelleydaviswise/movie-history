@@ -4,47 +4,20 @@
   {{#each Movie}}
     <div class="col-sm-3">
       {{#if poster}}
-      <img src="{{poster}}" alt="{{title}} Poster">
+      <img src="{{poster}}">
       {{else}}
-      <img src="../images/no-image-found.jpg" alt="{{title}} Poster">
+      <img src="../images/no-image-found.jpg">
       {{/if}}
-        <fieldset class="form-control rating" id="starrating">
-          <input type="radio" id="star5" name="rating" value="{{rating}}"/>
-          <label class = "full" for="star5" title="10"></label>
+        <br>
+        <input type="hidden" class="rating" />
+        <br>
+        <button class="btn watchToggle">Unwatched</button>
 
-          <input type="radio" id="star4half" name="rating" value="{{rating}}"/>
-          <label class="half" for="star4half" title="9"></label>
-
-          <input type="radio" id="star4" name="rating" value="{{rating}}"/>
-          <label class = "full" for="star4" title="8"></label>
-
-          <input type="radio" id="star3half" name="rating" value="{{rating}}"/>
-          <label class="half" for="star3half" title="7"></label>
-
-          <input type="radio" id="star3" name="rating" value="{{rating}}"/>
-          <label class = "full" for="star3" title="6"></label>
-
-          <input type="radio" id="star2half" name="rating" value="{{rating}}"/>
-          <label class="half" for="star2half" title="5"></label>
-
-          <input type="radio" id="star2" name="rating" value="{{rating}}"/>
-          <label class = "full" for="star2" title="4"></label>
-
-          <input type="radio" id="star1half" name="rating" value="{{rating}}"/>
-          <label class="half" for="star1half" title="3"></label>
-
-          <input type="radio" id="star1" name="rating" value="{{rating}}"/>
-          <label class = "full" for="star1" title="2"></label>
-          
-          <input type="radio" id="starhalf" name="rating" value="{{rating}}"/>
-          <label class="half" for="starhalf" title="1"></label>
-        </fieldset>
+        <button type="button" class="del btn btn-default btn-med">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        </button>
     </div>
   {{/each}}
-  </div>
-      <button class="btn btn-danger watchToggle">Unwatched</button>
-      <button class="del btn btn-danger">Delete</button>
+  </div>  
   <br><br><br>
 </section>  
-
-{{!-- <input class=" rating" type="range" min="1" max="10" step="1" value="{{rating}}"> --}}

@@ -63,47 +63,12 @@ div {
   font-size: 1.15em !important;
 }
 
-
-// Stars
-
-.form-control {
-  margin: 10px 0 !important;
+.btn {
+  background-color: slateGray;
+  color: black;
 }
 
-.rating { 
-  border: none;
-  float: left;
+.space{
+  margin: 20px;
+  padding: 30px;
 }
-
-.rating > input { 
-  display: none; 
-} 
-
-.rating > label:before { 
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";  /*whole star*/
-}
-
-.rating > .half:before { 
-  content: "\f089";  /*half star*/
-  position: absolute;
-}
-
-.rating > label { 
-  color: #ddd; 
- float: right; 
-}
-
-// /***** CSS Magic to Highlight Stars on Hover *****/
-
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
-
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 

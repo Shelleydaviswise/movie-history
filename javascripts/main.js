@@ -6,7 +6,8 @@ requirejs.config({
     'firebase': '../bower_components/firebase/firebase',
     'lodash': '../bower_components/lodash/lodash.min',
     'hbs': '../bower_components/require-handlebars-plugin/hbs',
-    'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min'
+    'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min',
+    'bootstrap-rating': '../bower_components/bootstrap-rating/bootstrap-rating.min'
   },
   shim: {
     'bootstrap': ['jquery'],
@@ -18,8 +19,8 @@ requirejs.config({
 
 
 // The main function requiring all our anciliary scripts
-requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "templates"], 
-  function($, _, _firebase, Handlebars, bootstrap, movies, template){
+requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "templates", "bootstrap-rating"], 
+  function($, _, _firebase, Handlebars, bootstrap, movies, template, bsrating){
   var myFirebaseRef = new Firebase("https://movie-history531.firebaseio.com/");
   var retrievedMoviesObj = {};
   var movie = {};
@@ -31,6 +32,12 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
       actorArrayMoviesObj[key].actors = actorArrayMoviesObj[key].actors.split(", ");
     }
     $(".main").html(template.movie({Movie:actorArrayMoviesObj}));
+    $('.rating').rating();
+    $('.rating').on('change', function () {
+        // Enter what needs to happen when rating is changed here!
+
+      });
+
     var allMovies = $(".movie-sec");
     for(var i=0; i<allMovies.length; i++) {
       var thisMovieKey = $(allMovies[i]).attr("key");
@@ -85,84 +92,71 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
 
   // Delete Movie Button (From Firebase)
 
-  $(document).on("click", ".del", function() {
-    var movieKey = $(this).parents(".movie-sec").attr("key");
-    myFirebaseRef.child("Movie").child(movieKey).set(null);
-  });
+  // $(document).on("click", ".del", function() {
+  //   var movieKey = $(this).parents(".movie-sec").attr("key");
+  //   myFirebaseRef.child("Movie").child(movieKey).set(null);
+  // });
 
   // Remove Movie Button (Not Firebase)
 
-  $(document).on("click", ".rmv", function() {
-    $(this).parent().remove();
-    console.log("confirmed remove button working");
-  });
+  // $(document).on("click", ".rmv", function() {
+  //   $(this).parent().remove();
+  //   console.log("confirmed remove button working");
+  // });
 
 //Radio bar for rating the movies
 
-  $("#range").on( "change", ".rating", function(e) {
-    var movieKey = $(this).parents(".movie-sec").attr("key");
-    var movieWithNewRating = retrievedMoviesObj[movieKey];
-    movieWithNewRating.rating = $(this).val();
-    myFirebaseRef.child("Movie").child(movieKey).set(movieWithNewRating);
-  });
+  // $("#range").on( "change", ".rating", function(e) {
+  //   var movieKey = $(this).parents(".movie-sec").attr("key");
+  //   var movieWithNewRating = retrievedMoviesObj[movieKey];
+  //   movieWithNewRating.rating = $(this).val();
+  //   myFirebaseRef.child("Movie").child(movieKey).set(movieWithNewRating);
+  // });
     
-  $('#search').click(function() {
+  // $('#search').click(function() {
     
     
-    var searchMovie = $('#searchText').val();
-    $('#searchText').val("");
+  //   var searchMovie = $('#searchText').val();
+  //   $('#searchText').val("");
 
-    console.log("search Movie", searchMovie);
-    console.log("firebase obj",retrievedMoviesObj);
+  //   console.log("search Movie", searchMovie);
+  //   console.log("firebase obj",retrievedMoviesObj);
 
-    var filteredMovies = {};
-    filteredMovies = _.findKey(actorArrayMoviesObj, function(movie) {
-      if (movie.title === searchMovie || movie.year === searchMovie) {
-        return true;
-      } else {
-        return false;
-      }
-    });  
+  //   var filteredMovies = {};
+  //   filteredMovies = _.findKey(actorArrayMoviesObj, function(movie) {
+  //     if (movie.title === searchMovie || movie.year === searchMovie) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   });  
 
     
-    console.log("filter", filteredMovies);
-    console.log("actorArrayMoviesObj.filteredMovies", actorArrayMoviesObj[filteredMovies]);
-    var finalFilteredMovie = {};
-    finalFilteredMovie[filteredMovies] = actorArrayMoviesObj[filteredMovies];
-    $(".main").html(template.movie({Movie:finalFilteredMovie}));
+  //   console.log("filter", filteredMovies);
+  //   console.log("actorArrayMoviesObj.filteredMovies", actorArrayMoviesObj[filteredMovies]);
+  //   var finalFilteredMovie = {};
+  //   finalFilteredMovie[filteredMovies] = actorArrayMoviesObj[filteredMovies];
+  //   $(".main").html(template.movie({Movie:finalFilteredMovie}));
+
     
-  });
+  // });
 
 // Toggleclass button for watched/unwatched movies
-  $(document).on("click", ".watchToggle", function(e) {
-    e.preventDefault();
-    var movieKey = $(this).parents(".movie-sec").attr("key");
-    console.log("movieKey",movieKey);
-    var movieWithNewWatched = retrievedMoviesObj[movieKey];
+//   $(document).on("click", ".watchToggle", function(e) {
+//     e.preventDefault();
+//     var movieKey = $(this).parents(".movie-sec").attr("key");
+//     console.log("movieKey",movieKey);
+//     var movieWithNewWatched = retrievedMoviesObj[movieKey];
 
-    console.log("movieWithNewWatched",movieWithNewWatched);
+//     console.log("movieWithNewWatched",movieWithNewWatched);
 
-    if(movieWithNewWatched.watched) {
-      movieWithNewWatched.watched = false;
-    } else {
-      movieWithNewWatched.watched = true;
-    }
-    myFirebaseRef.child("Movie").child(movieKey).set(movieWithNewWatched);
-  }); 
+//     if(movieWithNewWatched.watched) {
+//       movieWithNewWatched.watched = false;
+//     } else {
+//       movieWithNewWatched.watched = true;
+//     }
+//     myFirebaseRef.child("Movie").child(movieKey).set(movieWithNewWatched);
+//   }); 
     
      
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
