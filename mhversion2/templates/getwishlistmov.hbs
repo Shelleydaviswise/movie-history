@@ -1,0 +1,45 @@
+<section class="movie-sec inline">
+  <div class="row">
+  {{#each movies}}
+    <div class="col-sm-3">
+      {{#if poster}}
+      <img src="{{poster}}">
+      {{else}}
+         {{title}}
+      {{/if}}
+        <br>
+        <input type="hidden" class="rating" />
+        <br>
+        <button class="btn watch">Watched</button>
+        <button class ='.btnAdd'>Add to Wishlist</button>
+
+
+        <button type="button" class="del btn btn-default btn-med"/>
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        </button>
+    </div>
+  {{/each}}
+
+
+  <!-- Just to display for now -->
+  {{!-- <div class="col-sm-3">
+      {{#if poster}}
+      <img src="{{moviesFB.poster}}">
+      {{else}}
+         {{moviesFB.title}}
+      {{/if}}
+        <br>
+        <input type="hidden" class="rating" />
+        <br>
+        <button class="btn watch">Watched</button>
+        <button class ='.btnAdd'>Add to Wishlist</button>
+
+
+        <button type="button" class="del btn btn-default btn-med"/>
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        </button>
+    </div>
+  </div>  --}} 
+  <br><br><br>
+</section>
+{{!-- key="{{@key}}" --}}

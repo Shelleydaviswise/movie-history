@@ -1,0 +1,74 @@
+.navbar-default {
+  margin-top: 20px;
+  background-color: slateGray;
+}
+
+.navbar-default .navbar-nav> li > a {
+  color: white; /*Change text color here*/
+  font-size: 20px;
+    }
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav{
+  color: #FEFAC0;  /*Text hover color on navbar*/
+}
+
+
+.navbar-default .navbar-brand {
+    color: #fff;   /*Home text color*/
+    font-size: 40px;
+}
+
+.navbar-default .navbar-brand:hover{
+  color: #FEFAC0;  /*Home hover color*/
+}
+
+.dropdown-menu > li > a:hover,{
+  color: #262626;
+  background-color: darkGray;  /*change color of links in drop down*/
+   }
+
+.center{
+  text-align: center;
+}   
+
+
+a {
+  font-size: 2em;
+  color: black;
+}
+
+.mainstyle{
+  background-color: MediumAquaMarine;
+  padding: 30px 30px 30px 30px; 
+  margin: 20px 20px 20px 20px;
+}
+
+.bkgdstyle{
+  background-color: lightGray;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body {
+  font: 100% Helvetica, sans-serif;
+}
+
+div {
+  color: black;
+  font-size: 1.15em !important;
+}
+
+.btn {
+  background-color: slateGray;
+  color: black;
+}
+
+.space{
+  margin: 20px;
+  padding: 30px;
+}
