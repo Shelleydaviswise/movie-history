@@ -15,10 +15,8 @@
   </head>
   <body class="bkgdstyle">
   <!-- Button trigger modal -->
-    <button type="button" id = 'findMovieBtn' class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Search OMDB
-    </button>
-    <input type='text' id='searchText' class='input-field' placeholder='Movie Title'>
+  
+   
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -51,10 +49,12 @@
             </ul>
             <form class="navbar-form navbar-right" role="search">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
+              
+               <input type='text' id='searchText' class=' btn btn-default input-field' placeholder='Movie Title'>
               <button type="submit" id="searchText" class="btn btn-default">Search</button>
-              <button type="button" id="addMoviebtn" class="btn btn-default">Find</button>
+            
+              <button type="button" id = 'findMovieBtn' class="btn btn-default" data-toggle="modal" data-target="#myModal">Find
+              </button>
             </form>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

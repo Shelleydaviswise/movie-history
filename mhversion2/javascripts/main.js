@@ -48,23 +48,53 @@ function($, _, _firebase, Handlebars, bootstrap, add, movies, watched, dom, bsra
 
 // Handlebars requires an object so this block turns  movies retrieved from Firebase 
 // and pushes each to an array of objects.  The #each function requires and array to loop over.
+  
+  // Initial population of landing page with Firebase wishlist
     function loadMovies(moviesFB) {
      require(['hbs!../templates/getwishlistmov'], function(template) {
       console.log('movieFB2', moviesFB);
       var arrayMovies = [];
       arrayMovies.push(moviesFB);
-      arrayMovies.push({
-        title: 'hello',
-        poster: 'hi',
-        rating: 'c',
-        watched: 'true',
-        wishlist: 'false'
-      });
+      // arrayMovies.push({
+      //   title: 'hello',
+      //   poster: 'hi',
+      //   rating: 'c',
+      //   watched: 'true',
+      //   wishlist: 'false'
+      // });
       var tempObj = {};
       tempObj.movies = arrayMovies;
-       $(target).html(template(obj1));
+       $(target).html(template(tempObj));
      });
    }
+  
+    $("#searchButton").click(function(evt){
+            console.log(evt);
+            add.getMovies(function(movie) {
+            tempMovies = movie; 
+            });
+
+            $("#searchBox").val('');
+
+      function loadMovies(tempMovies) {
+           require(['hbs!../templates/getwishlistmov'], function(template) {
+            console.log('tempMovies', tempMovies);
+            var arrayNewMovies = [];
+            arrayNewMovies.push(tempMovies);
+            console.log(arrayNewMovies)
+            // arrayMovies.push({
+            //   title: 'hello',
+            //   poster: 'hi',
+            //   rating: 'c',
+            //   watched: 'true',
+            //   wishlist: 'false'
+            // });
+            var tempObj = {};
+            tempObj.movies = arrayNewMovies;
+             $(target).html(template(tempObj));
+           });
+          };
+        });
 
  // $(document).on('click', '.btnWatched', function(){
  //   if key = _.findKey(moviesFB, 'watched', false, function(w){

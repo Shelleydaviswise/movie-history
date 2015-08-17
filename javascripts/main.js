@@ -20,12 +20,13 @@ requirejs.config({
 
 // The main function requiring all our anciliary scripts
 
-requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "templates", "bootstrap-rating"], 
-  function($, _, _firebase, Handlebars, bootstrap, movies, template, bsrating){
+requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "ask-OMDB", "getMovies", "templates", "bootstrap-rating"], 
+  function($, _, _firebase, Handlebars, bootstrap, ask, movies, template, bsrating){
   var myFirebaseRef = new Firebase("https://movie-history531.firebaseio.com/");
   var retrievedMoviesObj = {};
   var movie = {};
   var newMovie = {};
+
   myFirebaseRef.child("Movie").on("value", function(snapshot) {
     retrievedMoviesObj = snapshot.val();
     actorArrayMoviesObj = snapshot.val();
@@ -56,6 +57,17 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
         $thisMovieWatchButton.removeClass("btn-success");
         $thisMovieWatchButton.addClass("btn-danger");
       }
+
+       var retrievedMovie = data;
+      $('#findMovieBtn').click(function() {
+        console.log("click");
+        var findMovie = $("#searchText").val();
+        console.log("searchText", findMovie);
+        $("#searchText").val("");
+        ask.getMovie(findMovie, show);
+
+        });
+
     }
     require(
     ['hbs!../templates/modal'],
@@ -65,26 +77,17 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
       });     
     });
 
-  });
-  var show = function(showMovie) {
-    movie = showMovie;
-    console.log("movies", showMovie);
-          
+  // var show = function(showMovie) {
+  //   movie = showMovie;
+  //   console.log("movies", showMovie);
+  //   };    
   //   newMovie.title = movie.Title;
   //   newMovie.poster = movie.Poster;
   //   console.log("newMovie", newMovie);
 
-// $('#findMovieBtn').click(function() {
-//     console.log("click");
-//     var findMovie = $("#searchText").val();
-//     console.log("searchText", findMovie);
-//     $("#searchText").val("");
-//     movies.getMovie(findMovie, show);
-
-//   });
 
 
-//Add Movie Button    
+// Add Movie Button    
 
   // $('#addMoviebtn').click(function() {
   //   console.log("click");
@@ -93,13 +96,13 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
   //   $("#addMovie").val("");
   //   movies.getMovie(addMovie, show);
 
-  //    // $.ajax ({
-  //   //   url: "https://movie-history531.firebaseio.com/Movie.json",
-  //   //    method: "POST", 
-  //   //    data: JSON.stringify(newMovie)
-  //   //  }).done(function(NewType) {
-  //   //    console.log("New Movie");
-  //   //  });
+  //    $.ajax ({
+  //     url: "https://movie-history531.firebaseio.com/Movie.json",
+  //      method: "POST", 
+  //      data: JSON.stringify(newMovie)
+  //    }).done(function(NewType) {
+  //      console.log("New Movie");
+  //    });
   
 
   // });
