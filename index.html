@@ -14,27 +14,6 @@
     <title>Nashville Software School</title>
   </head>
   <body class="bkgdstyle">
-  <!-- Button trigger modal -->
-    <button type="button" id = 'findMovieBtn' class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Search OMDB
-    </button>
-    <input type='text' id='searchText' class='input-field' placeholder='Movie Title'>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Your movies...</h4>
-          </div>
-          <div id ="modal-body">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Add to Wishlist</button>
-          </div>
-        </div>
-      </div>
-    </div>
     <header>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -44,19 +23,19 @@
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="collapse navbar-collapse navbar-left" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a href="#">Wish List</a></li>
               <li><a href="#">Watched</a></li>
             </ul>
-            <form class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" id="searchText" class="btn btn-default">Search</button>
-              <button type="button" id="addMoviebtn" class="btn btn-default">Find</button>
-            </form>
           </div><!-- /.navbar-collapse -->
+          <div class="navbar-form navbar-right">
+            <form class="form-group" role="search">
+                <input type="text" id="titleInput" class="form-control" placeholder="Search">
+            </form>
+              <button type="submit" id="searchButton" class="btn btn-default">Search</button>
+          </div>    
+          
         </div><!-- /.container-fluid -->
       </nav>
     </header>
@@ -65,12 +44,7 @@
 
     <div id="cont" class="container-fluid">
       <div id="rowEq" class="row row-eq-height">
-        <div id="range" class="col-xs-12 main mainstyle">
-          <div class="btn-group" role="group" aria-label="...">
-            <div class="btn-group" role="group">
-              <!-- <button type="button" class="btn btn-danger">Watched</button> -->
-            </div>
-          </div>
+        <div  id="movie-list" class="col-xs-12 main mainstyle">
         </div>
       </div>
     </div>

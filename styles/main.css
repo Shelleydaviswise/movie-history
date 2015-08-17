@@ -53,4 +53,12 @@ div {
   color: black;
   font-size: 1.15em !important; }
 
+.btn {
+  background-color: slateGray;
+  color: black; }
+
+.space {
+  margin: 20px;
+  padding: 30px; }
+
 /*# sourceMappingURL=main.css.map */

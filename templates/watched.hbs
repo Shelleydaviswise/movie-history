@@ -1,0 +1,18 @@
+<section class="movie-sec inline">
+  <div class="row">
+  {{#each movie}}
+    <div class="col-sm-3">
+      {{#if poster}}
+      <img src="{{poster}}">
+      {{else}}
+      <img src="../images/no-image-found.jpg">
+      {{/if}}
+        <br>
+        <input type="hidden" class="rating" />
+        <br>
+        <button class="btn btn-danger watchToggle">Unwatched</button>
+    </div>
+  {{/each}}
+  </div>  
+  <br><br><br>
+</section>  
