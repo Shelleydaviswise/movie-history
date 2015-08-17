@@ -1,6 +1,26 @@
+body {
+  font-family: 'Lato', sans-serif;
+  color: white;
+  background-image: url(../images/Home_Theatre.jpg);
+  background-size: cover; 
+} 
+
+
+div {
+  background-color: transparent;
+  color: black;
+  font-size: 1.15em !important;
+}
+
+div.btn-group {
+    margin: 0 auto; 
+    text-align: center;
+}
+ 
+
 .navbar-default {
   margin-top: 20px;
-  background-color: slateGray;
+  background-color: #731822;
 }
 
 .navbar-default .navbar-nav> li > a {
@@ -22,10 +42,6 @@
   color: #FEFAC0;  /*Home hover color*/
 }
 
-.dropdown-menu > li > a:hover,{
-  color: #262626;
-  background-color: darkGray;  /*change color of links in drop down*/
-   }
 
 .center{
   text-align: center;
@@ -38,14 +54,12 @@ a {
 }
 
 .mainstyle{
-  background-color: MediumAquaMarine;
+
   padding: 30px 30px 30px 30px; 
   margin: 20px 20px 20px 20px;
 }
 
-.bkgdstyle{
-  background-color: lightGray;
-}
+
 
 .row-eq-height {
   display: -webkit-box;
@@ -54,14 +68,9 @@ a {
   display: flex;
 }
 
-body {
-  font: 100% Helvetica, sans-serif;
-}
 
-div {
-  color: black;
-  font-size: 1.15em !important;
-}
+
+
 
 .btn {
   background-color: slateGray;
