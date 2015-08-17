@@ -1,18 +1,13 @@
-<section class="movie-sec inline">
-  <div class="row">
-  {{#each movie}}
-    <div class="col-sm-3">
-      {{#if poster}}
-      <img src="{{poster}}">
-      {{else}}
-      <img src="../images/no-image-found.jpg">
-      {{/if}}
-        <button class="btn btn-danger watchToggle">Watched</button>
-
-        <button type="button" class="del btn-danger btn btn-default btn-med">
-          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-        </button>
-    </div>
-  {{/each}}
-  </div>  
-</section>  
+{{#each movies}}
+  <div class="col-sm-3" key="{{title}}" watched="{{seen-it}}" rating="{{rating}}" title="{{title}}" id="{{imdb}}">
+    <div>
+      <img src='{{image-url}}' alt='' onError='$(this).replaceWith("<div><h2>{{title}}</h2></div>");'>
+    </div>  
+    <br>
+      <button type="button" id="watchedButton" watched="{{seen-it}}">Watched</button>
+      <button type="button" id="deleteButton">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+      </button>
+  </div>
+{{/each}}
+ 
